@@ -88,213 +88,219 @@ class _AddState extends State<Add> {
         centerTitle: true,
         title: Text("Add Stock"),
       ),
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        labelText: "Item ID",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String itemid) {
-                      if (itemid.isEmpty) {
-                        return 'Please Enter Item ID';
-                      }
-                    },
-                    onChanged: (String itemid) {
-                      getitemid(itemid);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        labelText: "Item Name",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String itemname) {
-                      if (itemname.isEmpty) {
-                        return 'Please Enter Item Name';
-                      }
-                    },
-                    onChanged: (String itemname) {
-                      getitemname(itemname);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        labelText: "Supplier ID",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String supplierid) {
-                      if (supplierid.isEmpty) {
-                        return 'Please Enter Item ID';
-                      }
-                    },
-                    onChanged: (String supplierid) {
-                      getsupplierid(supplierid);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                    decoration: InputDecoration(
-                        labelText: "Quantity",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String quantity) {
-                      if (quantity.isEmpty) {
-                        return 'Please Enter Quantity';
-                      }
-                    },
-                    onChanged: (String quantity) {
-                      getquantity(quantity);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                    decoration: InputDecoration(
-                        labelText: "Price Per Item",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String price) {
-                      if (price.isEmpty) {
-                        return 'Please Enter Price Per Item';
-                      }
-                    },
-                    onChanged: (String price) {
-                      getprice(price);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                    decoration: InputDecoration(
-                        labelText: "Total Cost",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String cost) {
-                      if (cost.isEmpty) {
-                        return 'Please Enter Cost ';
-                      }
-                    },
-                    onChanged: (String cost) {
-                      getcost(cost);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 8.0),
-                  child: TextFormField(
-                    keyboardType: TextInputType.datetime,
-                    decoration: InputDecoration(
-                        labelText: "Date",
-                        fillColor: Colors.white,
-                        errorStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.red, width: 2.0))),
-                    validator: (String date) {
-                      if (date.isEmpty) {
-                        return 'Please Enter Date';
-                      }
-                    },
-                    onChanged: (String date) {
-                      getdate(date);
-                    },
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    RaisedButton(
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      child: Text("ADD STOCK"),
-                      textColor: Colors.white,
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          addstock();
-                          return showDialog(
-                              context: context,
-                              builder: (context) {
-                                return CupertinoAlertDialog(
-                                  title: Text('Added Successfully'),
-                                );
-                              },
-                              barrierDismissible: true);
+      body: Center(
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          labelText: "Item ID",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String itemid) {
+                        if (itemid.isEmpty) {
+                          return 'Please Enter Item ID';
                         }
                       },
+                      onChanged: (String itemid) {
+                        getitemid(itemid);
+                      },
                     ),
-                  ],
-                )
-              ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          labelText: "Item Name",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String itemname) {
+                        if (itemname.isEmpty) {
+                          return 'Please Enter Item Name';
+                        }
+                      },
+                      onChanged: (String itemname) {
+                        getitemname(itemname);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          labelText: "Supplier ID",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String supplierid) {
+                        if (supplierid.isEmpty) {
+                          return 'Please Enter Item ID';
+                        }
+                      },
+                      onChanged: (String supplierid) {
+                        getsupplierid(supplierid);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                          labelText: "Quantity",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String quantity) {
+                        if (quantity.isEmpty) {
+                          return 'Please Enter Quantity';
+                        }
+                      },
+                      onChanged: (String quantity) {
+                        getquantity(quantity);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                          labelText: "Price Per Item",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String price) {
+                        if (price.isEmpty) {
+                          return 'Please Enter Price Per Item';
+                        }
+                      },
+                      onChanged: (String price) {
+                        getprice(price);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      decoration: InputDecoration(
+                          labelText: "Total Cost",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String cost) {
+                        if (cost.isEmpty) {
+                          return 'Please Enter Cost ';
+                        }
+                      },
+                      onChanged: (String cost) {
+                        getcost(cost);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.datetime,
+                      decoration: InputDecoration(
+                          labelText: "Date",
+                          fillColor: Colors.white,
+                          errorStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0))),
+                      validator: (String date) {
+                        if (date.isEmpty) {
+                          return 'Please Enter Date';
+                        }
+                      },
+                      onChanged: (String date) {
+                        getdate(date);
+                      },
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 250,
+                        child: RaisedButton(
+                          elevation: 10,
+                          color: Colors.red,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Text("ADD STOCK"),
+                          textColor: Colors.white,
+                          onPressed: () {
+                            if (_formKey.currentState.validate()) {
+                              addstock();
+                              return showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return CupertinoAlertDialog(
+                                      title: Text('Added Successfully'),
+                                    );
+                                  },
+                                  barrierDismissible: true);
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -188,154 +188,172 @@ class _CheckState extends State<Check> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+            backgroundColor: Colors.red[700],
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Add();
+              }));
+            }),
         appBar: AppBar(
           centerTitle: true,
           title: Text("CHECK AVAILABILITY"),
         ),
-        body: Container(
-          color: Colors.grey[50],
-          child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Card(
-                      elevation: 20,
-                      color: Colors.black,
-                      child: Container(
-                        height: 30,
-                        child: Row(
-                          textDirection: TextDirection.ltr,
-                          children: [
-                            Expanded(
-                                child: Text(
-                              "Item ID",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18.0,
-                                  color: Colors.white),
-                            )),
-                            Expanded(
-                                child: Text(
-                              "Name",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18.0,
-                                  color: Colors.white),
-                            )),
-                            Expanded(
-                                child: Text(
-                              "Quantity",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18.0,
-                                  color: Colors.white),
-                            )),
-                            Expanded(child: Text(""))
-                          ],
+        body: SingleChildScrollView(
+          child: Container(
+            color: Colors.grey[50],
+            child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Card(
+                        elevation: 20,
+                        color: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Container(
+                          height: 40,
+                          child: Row(
+                            textDirection: TextDirection.ltr,
+                            children: [
+                              Expanded(
+                                  child: Text(
+                                "Item ID",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                    color: Colors.white),
+                              )),
+                              Expanded(
+                                  child: Text(
+                                "Name",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                    color: Colors.white),
+                              )),
+                              Expanded(
+                                  child: Text(
+                                "Quantity",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0,
+                                    color: Colors.white),
+                              )),
+                              Expanded(child: Text(""))
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Card(
-                    color: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 10,
-                    child: Padding(
-                      padding: EdgeInsets.all(8),
-                      child: StreamBuilder(
-                        stream:
-                            Firestore.instance.collection("Stock").snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: snapshot.data.documents.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  DocumentSnapshot ds =
-                                      snapshot.data.documents[index];
-                                  return Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Expanded(
-                                        child: InkWell(
+                    Card(
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      elevation: 10,
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
+                        child: StreamBuilder(
+                          stream: Firestore.instance
+                              .collection("Stock")
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              return ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: snapshot.data.documents.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    DocumentSnapshot ds =
+                                        snapshot.data.documents[index];
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Expanded(
+                                          child: InkWell(
+                                            child: Text(
+                                              ds.get('itemId'),
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            onLongPress: () {
+                                              updateDialog(
+                                                  context, ds.documentID);
+                                            },
+                                            onTap: () => navigationtodetail(ds),
+                                          ),
+                                        ),
+                                        Expanded(
                                           child: Text(
-                                            ds.get('itemId'),
+                                            ds.get('itemName'),
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold),
                                           ),
-                                          onLongPress: () {
-                                            updateDialog(
-                                                context, ds.documentID);
-                                          },
-                                          onTap: () => navigationtodetail(ds),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          ds.get('itemName'),
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
+                                        Expanded(
+                                          child: Text(
+                                            ds.get('quantityItem').toString(),
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          ds.get('quantityItem').toString(),
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
+                                        Expanded(
+                                          child: RaisedButton(
+                                            color: Colors.yellow[800],
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(16)),
+                                            child: Text("Delete"),
+                                            textColor: Colors.white,
+                                            elevation: 3.0,
+                                            onPressed: () async {
+                                              await Firestore.instance
+                                                  .collection('Stock')
+                                                  .document(ds.documentID)
+                                                  .delete();
+                                              return showDialog(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return CupertinoAlertDialog(
+                                                      title: Text(
+                                                          'Deleted Successfully'),
+                                                    );
+                                                  },
+                                                  barrierDismissible: true);
+                                            },
+                                          ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: RaisedButton(
-                                          color: Colors.yellow[800],
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(16)),
-                                          child: Text("Delete"),
-                                          textColor: Colors.white,
-                                          elevation: 3.0,
-                                          onPressed: () async {
-                                            await Firestore.instance
-                                                .collection('Stock')
-                                                .document(ds.documentID)
-                                                .delete();
-                                            return showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return CupertinoAlertDialog(
-                                                    title: Text(
-                                                        'Deleted Successfully'),
-                                                  );
-                                                },
-                                                barrierDismissible: true);
-                                          },
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                });
-                          } else {
-                            return Align(
-                              alignment: FractionalOffset.center,
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
+                                      ],
+                                    );
+                                  });
+                            } else {
+                              return Align(
+                                alignment: FractionalOffset.center,
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                          },
+                        ),
                       ),
-                    ),
-                  )
-                ],
-              )),
+                    )
+                  ],
+                )),
+          ),
         ));
   }
 }
