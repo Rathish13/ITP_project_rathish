@@ -22,7 +22,7 @@ class _DetailpageState extends State<Detailpage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Details"),
+        title: Text("DETAILS"),
       ),
       body: Container(
         child: Center(

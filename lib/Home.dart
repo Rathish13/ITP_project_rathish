@@ -19,10 +19,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("STOCK MENU"),
-      ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(10.0),
@@ -33,53 +29,60 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(20.0),
                 child: Img(),
               ),
-              SizedBox(
-                height: 50,
-                width: 250,
-                child: RaisedButton(
-                  color: Colors.red,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  child: Text(
-                    "ADD STOCK",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: 50,
+                      width: 250,
+                      child: RaisedButton(
+                        color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        child: Text(
+                          "ADD STOCK",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        textColor: Colors.white,
+                        elevation: 3.0,
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Add();
+                          }));
+                        },
+                      ),
                     ),
                   ),
-                  textColor: Colors.white,
-                  elevation: 3.0,
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Add();
-                    }));
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 50,
-                width: 250,
-                child: RaisedButton(
-                  color: Colors.red,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16)),
-                  child: Text(
-                    "CHECK AVAILABILITY",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  SizedBox(
+                    height: 50,
+                    width: 250,
+                    child: RaisedButton(
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Text(
+                        "CHECK AVAILABILITY",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      textColor: Colors.white,
+                      elevation: 3.0,
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Check();
+                        }));
+                      },
                     ),
                   ),
-                  textColor: Colors.white,
-                  elevation: 3.0,
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Check();
-                    }));
-                  },
-                ),
+                ],
               ),
             ],
           ),
@@ -95,8 +98,8 @@ class Img extends StatelessWidget {
     AssetImage assetImage = AssetImage("images/del.jpeg");
     Image image = Image(
       image: assetImage,
-      width: 100.0,
-      height: 100.0,
+      width: 200.0,
+      height: 200.0,
     );
     return Container(
       child: image,

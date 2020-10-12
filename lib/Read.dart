@@ -200,35 +200,42 @@ class _CheckState extends State<Check> {
                 children: [
                   Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      textDirection: TextDirection.ltr,
-                      children: [
-                        Expanded(
-                            child: Text(
-                          "Item ID",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
-                        )),
-                        Expanded(
-                            child: Text(
-                          "Name",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
-                        )),
-                        Expanded(
-                            child: Text(
-                          "Quantity",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
-                        )),
-                        Expanded(child: Text(""))
-                      ],
+                    child: Card(
+                      elevation: 20,
+                      color: Colors.black,
+                      child: Container(
+                        height: 30,
+                        child: Row(
+                          textDirection: TextDirection.ltr,
+                          children: [
+                            Expanded(
+                                child: Text(
+                              "Item ID",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18.0,
+                                  color: Colors.white),
+                            )),
+                            Expanded(
+                                child: Text(
+                              "Name",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18.0,
+                                  color: Colors.white),
+                            )),
+                            Expanded(
+                                child: Text(
+                              "Quantity",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18.0,
+                                  color: Colors.white),
+                            )),
+                            Expanded(child: Text(""))
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   Card(
