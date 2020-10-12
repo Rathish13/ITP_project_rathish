@@ -92,12 +92,12 @@ class _AddState extends State<Add> {
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(10.0),
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       decoration: InputDecoration(
                           labelText: "Item ID",
@@ -120,7 +120,7 @@ class _AddState extends State<Add> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       decoration: InputDecoration(
                           labelText: "Item Name",
@@ -143,7 +143,7 @@ class _AddState extends State<Add> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       decoration: InputDecoration(
                           labelText: "Supplier ID",
@@ -166,7 +166,7 @@ class _AddState extends State<Add> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
@@ -193,7 +193,7 @@ class _AddState extends State<Add> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
@@ -220,7 +220,7 @@ class _AddState extends State<Add> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
@@ -247,7 +247,7 @@ class _AddState extends State<Add> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: EdgeInsets.all(5),
                     child: TextFormField(
                       keyboardType: TextInputType.datetime,
                       decoration: InputDecoration(
