@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
                       height: 50,
                       width: 250,
                       child: RaisedButton(
-                        color: Colors.red,
+                        color: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16)),
                         child: Text(
@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                             fontSize: 20,
                           ),
                         ),
-                        textColor: Colors.white,
+                        textColor: Colors.red[700],
                         elevation: 3.0,
                         onPressed: () {
                           Navigator.push(context,
@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
                     height: 50,
                     width: 250,
                     child: RaisedButton(
-                      color: Colors.red,
+                      color: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16)),
                       child: Text(
@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
                           fontSize: 20,
                         ),
                       ),
-                      textColor: Colors.white,
+                      textColor: Colors.red[700],
                       elevation: 3.0,
                       onPressed: () {
                         Navigator.push(context,

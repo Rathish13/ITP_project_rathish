@@ -35,7 +35,7 @@ class _DetailpageState extends State<Detailpage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                color: Colors.red,
+                color: Colors.red[700],
                 elevation: 10,
                 child: Column(
                   children: [
@@ -46,7 +46,7 @@ class _DetailpageState extends State<Detailpage> {
                         width: 245,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                              color: Colors.yellow[800],
+                              color: Colors.white,
                               shape: BoxShape.rectangle,
                               borderRadius: BorderRadius.circular(15)),
                           child: Center(
@@ -54,7 +54,7 @@ class _DetailpageState extends State<Detailpage> {
                               widget.post.data()["itemName"],
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.red[700],
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),

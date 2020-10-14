@@ -154,7 +154,7 @@ class _CheckState extends State<Check> {
                       }
                     },
                     child: Text('Update'),
-                    textColor: Colors.red,
+                    textColor: Colors.red[700],
                   )
                 ],
               ),
@@ -177,7 +177,7 @@ class _CheckState extends State<Check> {
   }
 
   navigationtodetail(DocumentSnapshot post) {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) => Detailpage(
@@ -213,8 +213,8 @@ class _CheckState extends State<Check> {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Card(
-                        elevation: 20,
-                        color: Colors.black,
+                        elevation: 8,
+                        color: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
@@ -229,7 +229,7 @@ class _CheckState extends State<Check> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18.0,
-                                    color: Colors.white),
+                                    color: Colors.red[700]),
                               )),
                               Expanded(
                                   child: Text(
@@ -237,7 +237,7 @@ class _CheckState extends State<Check> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18.0,
-                                    color: Colors.white),
+                                    color: Colors.red[700]),
                               )),
                               Expanded(
                                   child: Text(
@@ -245,7 +245,7 @@ class _CheckState extends State<Check> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18.0,
-                                    color: Colors.white),
+                                    color: Colors.red[700]),
                               )),
                               Expanded(child: Text(""))
                             ],
@@ -254,7 +254,7 @@ class _CheckState extends State<Check> {
                       ),
                     ),
                     Card(
-                      color: Colors.red,
+                      color: Colors.red[700],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15.0),
                       ),
@@ -314,13 +314,13 @@ class _CheckState extends State<Check> {
                                         ),
                                         Expanded(
                                           child: RaisedButton(
-                                            color: Colors.yellow[800],
+                                            color: Colors.white,
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(16)),
                                             child: Text("Delete"),
-                                            textColor: Colors.white,
-                                            elevation: 3.0,
+                                            textColor: Colors.red[700],
+                                            elevation: 5.0,
                                             onPressed: () async {
                                               await Firestore.instance
                                                   .collection('Stock')

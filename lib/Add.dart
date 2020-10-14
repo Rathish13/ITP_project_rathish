@@ -107,8 +107,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String itemid) {
                         if (itemid.isEmpty) {
                           return 'Please Enter Item ID';
@@ -130,8 +130,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String itemname) {
                         if (itemname.isEmpty) {
                           return 'Please Enter Item Name';
@@ -153,8 +153,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String supplierid) {
                         if (supplierid.isEmpty) {
                           return 'Please Enter Item ID';
@@ -180,8 +180,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String quantity) {
                         if (quantity.isEmpty) {
                           return 'Please Enter Quantity';
@@ -207,8 +207,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String price) {
                         if (price.isEmpty) {
                           return 'Please Enter Price Per Item';
@@ -234,8 +234,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String cost) {
                         if (cost.isEmpty) {
                           return 'Please Enter Cost ';
@@ -258,8 +258,8 @@ class _AddState extends State<Add> {
                             fontSize: 15.0,
                           ),
                           focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0))),
+                              borderSide: BorderSide(
+                                  color: Colors.red[700], width: 2.0))),
                       validator: (String date) {
                         if (date.isEmpty) {
                           return 'Please Enter Date';
@@ -277,11 +277,11 @@ class _AddState extends State<Add> {
                         width: 250,
                         child: RaisedButton(
                           elevation: 10,
-                          color: Colors.red,
+                          color: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16)),
                           child: Text("ADD STOCK"),
-                          textColor: Colors.white,
+                          textColor: Colors.red[700],
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
                               addstock();
