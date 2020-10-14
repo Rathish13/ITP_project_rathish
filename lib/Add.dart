@@ -86,7 +86,7 @@ class _AddState extends State<Add> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Add Stock"),
+        title: Text("ADD STOCK"),
       ),
       body: Center(
         child: Form(

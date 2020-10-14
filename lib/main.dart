@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'STOCK MENU',
       theme: new ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.red,
+        primaryColor: Colors.red[700],
         accentColor: Colors.grey,
       ),
       home: Home(),
